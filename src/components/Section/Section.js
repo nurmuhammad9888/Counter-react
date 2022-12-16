@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
 import './section.css'
-
 import Card from '../Card/Card';
 
 const Section = () => {
-    // const [val, setValue] = useState("");
     const [data, setData] = useState([]);
+    const [loding, setLoding] = useState(true)
+    const [eror, setEror] = useState(false)
 
     useEffect(() =>{
         fetch("https://restcountries.com/v3.1/all")
         .then(res => res.json())
         .then(data => {
             setData(data)
+            setLoding(false)
         })
     }, [])
 
@@ -21,10 +22,12 @@ const Section = () => {
             .then(res => res.json())
             .then(data => {
                 setData(data) 
+                setLoding(false)
             })
             .catch(err =>{
                 console.log("Error");
-                <h1>Not found</h1>
+                setEror(true)
+                setLoding(false)
             })
         }else{
             fetch("https://restcountries.com/v3.1/all")
@@ -42,10 +45,12 @@ const Section = () => {
             .then(res => res.json())
             .then(data => {
                 setData(data) 
+                setLoding(false)
             })
             .catch(err =>{
                 console.log("Error");
-                <h1>Not found</h1>
+                setEror(true)
+                setLoding(false)
             })
         }
     }
@@ -53,6 +58,8 @@ const Section = () => {
     return (
         <>
             <div className="container">
+            {loding && <h2>Loding...</h2>}
+            {eror && <h2>Error...</h2>}
                 <ul className="counter-list-form">
                     <li className="counter-item-form">
                         <form className='counter-form' action="#" method='POST' autoComplete='off'>
