@@ -1,8 +1,8 @@
 import React from 'react';
 import "./card.css"
 
-const Card = ({obj}) => {
-    const  {name, img ,population ,region ,capital} = obj
+const Card = ({name, img ,population ,region ,capital}) => {
+    // const   = obj
     return (
             <li className="counter-item">
                 <img className='counter-img' width="265" height="160" src={img} alt={name}/>

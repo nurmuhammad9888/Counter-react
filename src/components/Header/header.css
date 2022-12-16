@@ -114,10 +114,24 @@ body{
 .counter-text-dark{
     margin: 0;
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
     color: #111517;
     cursor: pointer;
+}
+.counter-text-dark::before{
+    content: '';
+    display: inline-block;
+    margin-right: 8px;
+    width: 17px;
+    height: 17px;
+    background-image: url('../../assets/images/moon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
