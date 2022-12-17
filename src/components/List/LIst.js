@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
-import Header from '../Header/Header';
 import "./list.css";
 
 export const LIst = () => {
