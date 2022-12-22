@@ -1,3 +1,13 @@
+:root{
+    --main-color: #111517;
+    --bg-color:#fff;
+    --body-bg:#F2F2F2;
+}
+.dark{
+    --main-color: #fff;
+    --bg-color: #2B3844;
+    --body-bg:#202C36;
+}
 /* nunito-sans-300 - latin */
 @font-face {
     font-family: 'Nunito Sans';
@@ -58,7 +68,6 @@ body{
     margin: 0;
     padding: 0;
     font-family: "Nunito Sans", "Arial", sans-serif;
-    background: #F2F2F2;
 }
 
 /* VISUALLY-HIDDEN */
@@ -82,13 +91,15 @@ body{
     margin: 0 auto;
     padding: 0 20px;
 }
-
+.wrapper{
+    background: var(--body-bg);
+}
 /* STICKY-FOOTER */
 .site-main{
     flex-grow: 1;
 }
 .counter-wrap-nav{
-    background: #FFFFFF;
+    background: var(--bg-color);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
     margin: 0;
 }
@@ -105,14 +116,12 @@ body{
     font-weight: 800;
     font-size: 24px;
     line-height: 33px;
-    color: #111517;
+    color: var(--main-color);
     text-decoration: none;
-}
-.counter-item-nav{
-    
 }
 .counter-text-dark{
     margin: 0;
+    margin-left: 15px;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -121,7 +130,7 @@ body{
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-    color: #111517;
+    color: var(--main-color);
     cursor: pointer;
 }
 .counter-text-dark::before{
@@ -134,4 +143,14 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+.counter-item-nav{
+    display: flex;
+}
+.counter-item-select{
+    border-radius: 5px;
+    width: 70px;
+    padding: 12px 8px;
+    background-color: var(--bg-color);
+    color: var(--main-color);
 }
