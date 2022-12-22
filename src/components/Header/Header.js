@@ -25,7 +25,18 @@ const {t, i18n} = useTranslation();
                             <option value="uz">UZ</option>
                             <option value="ru">RU</option>
                         </select>
-                        <button className='counter-text-dark' onClick={() => { setTheme(theme === "light" ? "dark" : "light")}} type="button">{t("header.darkModeBtb")}</button>
+                        <button className='counter-text-dark' onClick={() =>{
+                        ( () =>{
+                            if(localStorage.getItem("theme") === "dark"){
+                                console.log("dark");
+                                localStorage.setItem("theme", "light" )
+                            }else{
+                                localStorage.setItem("theme", "dark" )
+                                console.log("light");
+                            }
+                        })()
+                        document.body.classList.toggle("dark")
+                        }} type="button">{t("header.darkModeBtb")}</button>
                     </li>
                 </ul>
             </div>

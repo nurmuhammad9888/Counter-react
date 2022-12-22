@@ -8,11 +8,9 @@ import { initReactI18next } from 'react-i18next';
 import { Lang } from './Lang/Lang';
 
 const App = () => {
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light")
-    useEffect(() => {
-        localStorage.setItem("theme", theme)
-    }, [theme]);
-
+    if(localStorage.getItem("theme") === "dark"){
+        document.body.classList.add("dark")
+    }
     i18n.use(initReactI18next).init({
         fallbackLng: localStorage.getItem("lang") || "en",
         interpolation: {
@@ -27,8 +25,8 @@ const App = () => {
     });
 
     return (
-        <div className={`${theme} wrapper`}>
-        <Header setTheme={setTheme} theme={theme}/>
+        <div className="wrapper">
+        <Header/>
             <div>
                 <Routes>
                     <Route path='/' element={<Section/>} />
